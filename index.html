@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>لوحة مبيعات Total</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header><h1>لوحة مبيعات Total</h1><p id="meta"></p></header>
+<main>
+<section class="filters">
+<label>السنة <select id="fYear"><option value="all">الكل</option></select></label>
+<label>الفترة <select id="fPeriod"><option value="all">كل الفترات</option><option value="H1">النصف الأول</option><option value="H2">النصف الثاني</option><option value="Q1">الربع 1</option><option value="Q2">الربع 2</option><option value="Q3">الربع 3</option><option value="Q4">الربع 4</option></select></label>
+<label>الفئة <select id="fCat"><option value="all">كل الفئات</option></select></label>
+</section>
+<section class="kpis" id="kpis"></section>
+<section class="alerts" id="alerts"></section>
+<section class="grid">
+<div class="card"><h2>الاتجاه الشهري: الفعلي مقابل المستهدف</h2><div class="cv"><canvas id="cMonthly"></canvas></div></div>
+<div class="card"><h2>مقارنة السنوات (الأشهر المُبلَّغة)</h2><div class="cv"><canvas id="cYears"></canvas></div></div>
+<div class="card"><h2>مقارنة الفئات</h2><div class="cv"><canvas id="cCats"></canvas></div></div>
+<div class="card"><h2>الأداء الربعي ونصف السنوي (نسبة التحقيق %)</h2><div class="cv"><canvas id="cPeriods"></canvas></div></div>
+</section>
+<section class="card">
+<h2>الجدول التفصيلي</h2>
+<input id="search" type="search" placeholder="بحث...">
+<div class="tw"><table id="tbl"><thead></thead><tbody></tbody></table></div>
+</section>
+</main>
+<footer>نسبة التحقيق = الفعلي ÷ المستهدف، وهي مختلفة عن نسبة النمو. تُحتسب فقط للأشهر التي لها فعلي مُبلَّغ.</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
