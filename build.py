@@ -27,3 +27,5 @@ for y in yrs:
             issues.append(f"{y} شهر {m}: الفعلي {'فارغ' if all(v is None for v in a) else 'صفر'} لكل الفئات؛ غير مؤكد أنه مبيعات صفرية")
 json.dump(dict(unit="غير محدد في المصدر", source="Total_2026 / ورقة Target", asOf="حدّث التاريخ", rows=rows,
                sourceAnnual=src, issues=issues), open('data/sales-data.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+# احذف العمود الخاص بالهواتف تماماً لتضمن عدم رفعه أونلاين
+df = df.drop(columns=['column_name_of_phones'], errors='ignore')
