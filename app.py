@@ -5,7 +5,7 @@ const f2=v=>v==null?"—":Number(v).toLocaleString("ar-SA",{maximumFractionDigit
 const pc=v=>v==null?"—":(v*100).toLocaleString("ar-SA",{maximumFractionDigits:1})+"٪";
 let D;
 try{D=await (await fetch("data/sales-data.json")).json()}catch(e){document.getElementById("meta").textContent="تعذّر تحميل data/sales-data.json";return}
-// الشهر "مُبلَّغ" إذا كان مجموع الفعلي لكل الفئات > 0؛ غير ذلك يُعامل كغير مؤكد وليس صفرًا
+# الشهر "مُبلَّغ" إذا كان مجموع الفعلي لكل الفئات > 0؛ غير ذلك يُعامل كغير مؤكد وليس صفرًا
 const rep={};D.rows.forEach(r=>{const k=r.year+"-"+r.month;rep[k]=(rep[k]||0)+(r.actual||0)});
 D.rows.forEach(r=>{r.reported=rep[r.year+"-"+r.month]>0&&r.actual!=null});
 document.getElementById("meta").textContent="المصدر: "+D.source+" · وحدة القياس: "+D.unit+" · حتى "+D.asOf;
